@@ -5,5 +5,5 @@
 npm install
 
 # serve application
-ionic server
+ionic serve
 ```
