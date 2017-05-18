@@ -9,6 +9,7 @@ import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import { MapPage } from '../pages/map/map';
 import { UserPage } from '../pages/user/user';
+import { FavoritesPage } from '../pages/favorites/favorites';
 
 @Component({
   templateUrl: 'app.html'
@@ -30,8 +31,9 @@ export class MyApp {
     this.pages = [
       { title: 'Home', component: HomePage },
       { title: 'List', component: ListPage },
-      { title: 'Map', component: MapPage },
-      { title: 'User', component: UserPage }
+      { title: 'Mapa', component: MapPage },
+      { title: 'Perfil', component: UserPage },
+      { title: 'Favoritos', component: FavoritesPage }
     ];
 
   }
