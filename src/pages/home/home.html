@@ -1,40 +1,35 @@
-<ion-header>
-  <ion-navbar>
-    <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
-    <ion-title>Home</ion-title>
-  </ion-navbar>
-</ion-header>
-
 <ion-content>
-  <!-- <button ion-button secondary menuToggle>
-    Toggle Menu
-  </button> -->
+  <ion-grid>
+    <ion-row>
+      <ion-col col-12>
+        <ion-toolbar>
+          <ion-buttons end>
+            <button ion-button color="primary">Skip</button>
+          </ion-buttons>
+        </ion-toolbar>
+      </ion-col>
+    </ion-row>
 
-  <ion-slides pager>
-    <ion-slide *ngFor="let slide of slides">
-      <ion-toolbar>
-        <ion-buttons end>
-          <button ion-button color="primary">Skip</button>
-        </ion-buttons>
-      </ion-toolbar>
+    <ion-row>
+      <ion-col col-12>
+        <ion-slides pager>
+          <ion-slide *ngFor="let slide of slides">
+            <img [src]="slide.image" class="slide-image"/>
+            <h2 class="slide-title" [innerHTML]="slide.title"></h2>
+            <p [innerHTML]="slide.description"></p>
+          </ion-slide>
 
-      <img [src]="slide.image" class="slide-image"/>
-      <h2 class="slide-title" [innerHTML]="slide.title"></h2>
-      <p [innerHTML]="slide.description"></p>
-    </ion-slide>
-
-    <ion-slide>
-      <ion-toolbar></ion-toolbar>
-
-      <img src="http://dummyimage.com/420x420/4d494d/686a82.gif&text=imagem+final"/>
-      <h2 class="slide-title">Ready to Play?</h2>
-      <button ion-button large clear icon-right color="primary">
-        Continue
-        <ion-icon name="arrow-forward"></ion-icon>
-      </button>
-    </ion-slide>
-  </ion-slides>
+          <ion-slide>
+            <img src="http://dummyimage.com/420x420/4d494d/686a82.gif&text=imagem+final"/>
+            <h2 class="slide-title">Ready to Start?</h2>
+            <button ion-button large clear icon-right color="primary">
+              Continue
+              <ion-icon name="arrow-forward"></ion-icon>
+            </button>
+          </ion-slide>
+        </ion-slides>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 
 </ion-content>
