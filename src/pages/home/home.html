@@ -2,16 +2,6 @@
   <ion-grid>
     <ion-row>
       <ion-col col-12>
-        <ion-toolbar>
-          <ion-buttons end>
-            <button ion-button color="primary">Skip</button>
-          </ion-buttons>
-        </ion-toolbar>
-      </ion-col>
-    </ion-row>
-
-    <ion-row>
-      <ion-col col-12>
         <ion-slides pager>
           <ion-slide *ngFor="let slide of slides">
             <img [src]="slide.image" class="slide-image"/>
@@ -20,7 +10,7 @@
           </ion-slide>
 
           <ion-slide>
-            <img src="http://dummyimage.com/420x420/4d494d/686a82.gif&text=imagem+final"/>
+            <img src="http://dummyimage.com/420x520/4d494d/686a82.gif&text=imagem+final"/>
             <h2 class="slide-title">Ready to Start?</h2>
             <button ion-button large clear icon-right color="primary">
               Continue
@@ -31,5 +21,4 @@
       </ion-col>
     </ion-row>
   </ion-grid>
-
 </ion-content>
