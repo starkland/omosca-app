@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
-@IonicPage()
+@IonicPage({
+  name: 'map',
+})
 @Component({
   selector: 'page-map',
   templateUrl: 'map.html',

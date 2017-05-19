@@ -1,9 +1,12 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 // Pages
 import { LoginPage } from '../login/login';
 
+@IonicPage({
+  name: 'home',
+})
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
@@ -16,7 +19,7 @@ export class HomePage {
     image: string
   }>
 
-  constructor(public navCtrl: NavController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.slides = [
       {
         title: 'Welcome to OMOSCA',

@@ -3,7 +3,9 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 import { DashboardPage } from '../dashboard/dashboard';
 
-@IonicPage()
+@IonicPage({
+  name: 'login',
+})
 @Component({
   selector: 'page-login',
   templateUrl: 'login.html',
