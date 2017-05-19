@@ -40,4 +40,8 @@ export class FavoritesPage {
     console.log('ionViewDidLoad FavoritesPage');
   }
 
+  openCard(cardObj) {
+    console.warn(cardObj);
+  }
+
 }

@@ -8,7 +8,10 @@
   <ion-grid>
     <ion-row>
       <ion-col col-12>
-        <ion-card *ngFor="let card of cards">
+        <ion-card
+          *ngFor="let card of cards"
+          (click)="openCard(card)">
+
           <img [src]="card.image" [alt]="card.name">
 
           <ion-card-content>
