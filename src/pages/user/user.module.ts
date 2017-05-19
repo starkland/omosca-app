@@ -1,4 +1,3 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { IonicPageModule } from 'ionic-angular';
 
@@ -9,7 +8,6 @@ import { UserPage } from './user';
     UserPage,
   ],
   imports: [
-    BrowserModule,
     IonicPageModule.forChild(UserPage),
   ],
   exports: [

@@ -17,4 +17,8 @@ export class UserPage {
     console.log('ionViewDidLoad UserPage');
   }
 
+  logout() {
+    this.navCtrl.push('home');
+    console.warn('O usuário saiu da aplicação.');
+  }
 }
