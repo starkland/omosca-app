@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
+import { DashboardPage } from '../dashboard/dashboard';
+
 @IonicPage()
 @Component({
   selector: 'page-login',
@@ -17,5 +19,9 @@ export class LoginPage {
 
   login() {
     console.warn('Login com o Facebook..');
+
+    setTimeout(() => {
+      this.navCtrl.setRoot(DashboardPage);
+    }, 300);
   }
 }
