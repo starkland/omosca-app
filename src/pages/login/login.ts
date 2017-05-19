@@ -23,7 +23,7 @@ export class LoginPage {
     console.warn('Login com o Facebook..');
 
     setTimeout(() => {
-      this.navCtrl.setRoot(DashboardPage);
+      this.navCtrl.push('dashboard');
     }, 300);
   }
 }
