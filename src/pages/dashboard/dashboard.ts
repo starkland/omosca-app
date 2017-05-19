@@ -17,4 +17,8 @@ export class DashboardPage {
     console.log('ionViewDidLoad DashboardPage');
   }
 
+  goTo(params) {
+    this.navCtrl.push(params);
+  }
+
 }
