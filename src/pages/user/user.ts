@@ -18,7 +18,7 @@ export class UserPage {
   }
 
   logout() {
-    this.navCtrl.push('home');
+    this.navCtrl.push('login');
     console.warn('O usuário saiu da aplicação.');
   }
 }
