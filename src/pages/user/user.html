@@ -1,13 +1,51 @@
 <ion-header>
   <ion-navbar>
-    <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
-
     <ion-title>Perfil</ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  <h1>Perfil</h1>
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col col-12>
+        <ion-card>
+          <ion-item>
+            <h2>Marty McFly</h2>
+            <p>November 5, 1955</p>
+          </ion-item>
+
+          <img src="http://dummyimage.com/690x416/4d494d/686a82.gif&text=avatar+aqui" alt="avatar+aqui">
+
+          <ion-card-content>
+            <p>Wait a minute. Wait a minute, Doc. Uhhh... Are you telling me that you built a time machine... out of a DeLorean?! Whoa. This is heavy.</p>
+          </ion-card-content>
+
+          <ion-row>
+            <ion-col>
+              <button ion-button icon-left clear small>
+                <ion-icon name="thumbs-up"></ion-icon>
+                <div>12 Baladas</div>
+              </button>
+            </ion-col>
+
+            <ion-col>
+              <button ion-button icon-left clear small>
+                <ion-icon name="star"></ion-icon>
+                <div>5 Favoritos</div>
+              </button>
+            </ion-col>
+          </ion-row>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col col-12>
+        <button ion-button block color="dark" (click)="logout()">
+          Sair
+        </button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>
+

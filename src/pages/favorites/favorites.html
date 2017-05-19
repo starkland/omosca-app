@@ -1,13 +1,28 @@
 <ion-header>
   <ion-navbar>
-    <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
-
     <ion-title>Favoritos</ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  <h1>Favoritos</h1>
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col col-12>
+        <ion-card
+          *ngFor="let card of cards"
+          (click)="openCard(card)">
+
+          <img [src]="card.image" [alt]="card.name">
+
+          <ion-card-content>
+            <ion-card-title>
+              <h2 [innerHTML]="card.title"></h2>
+            </ion-card-title>
+
+            <p [innerHTML]="card.description"></p>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

@@ -2,19 +2,19 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 @IonicPage({
-  name: 'map',
+  name: 'calendar',
 })
 @Component({
-  selector: 'page-map',
-  templateUrl: 'map.html',
+  selector: 'page-calendar',
+  templateUrl: 'calendar.html',
 })
-export class MapPage {
+export class CalendarPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad MapPage');
+    console.log('ionViewDidLoad CalendarPage');
   }
 
 }
