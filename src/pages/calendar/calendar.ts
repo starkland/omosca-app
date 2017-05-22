@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
 
 @IonicPage({
   name: 'calendar',
@@ -14,13 +14,17 @@ export class CalendarPage {
   selectedEvent: Object;
   viewTitle: String;
   eventSource: Array<{
+    eventId: number,
     title: string,
     startTime: Date,
     endTime: Date,
     allDay: boolean,
   }>;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    public modalCtrl: ModalController) {
 
     this.calendar = {
       mode: 'month',
@@ -32,6 +36,7 @@ export class CalendarPage {
 
     this.eventSource = [
       {
+        eventId: 1,
         title: 'Evento de teste!',
         startTime: new Date(),
         endTime: new Date(),
@@ -50,6 +55,9 @@ export class CalendarPage {
 
   onEventSelected = (event) => {
     this.selectedEvent = event;
+
+    let modal = this.modalCtrl.create(event);
+    modal.present();
   };
 
   onViewTitleChanged = (title: string) => {
