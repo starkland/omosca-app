@@ -11,9 +11,8 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 export class CalendarPage {
 
   calendar: Object;
-
+  selectedEvent: Object;
   viewTitle: String;
-
   eventSource: Array<{
     title: string,
     startTime: Date,
@@ -28,6 +27,7 @@ export class CalendarPage {
       currentDate: '',
     };
 
+    this.selectedEvent = '';
     this.viewTitle = '';
 
     this.eventSource = [
@@ -49,11 +49,10 @@ export class CalendarPage {
   };
 
   onEventSelected = (event) => {
-    console.warn('onEventSelected:', event);
+    this.selectedEvent = event;
   };
 
   onViewTitleChanged = (title: string) => {
-    console.warn(title);
     this.viewTitle = title;
   };
 

@@ -9,7 +9,9 @@
   <ion-grid>
     <ion-col col-12>
       <h4 class="calendar-title" [innerHTML]="viewTitle"></h4>
+    </ion-col>
 
+    <ion-col col-12>
       <calendar
         [eventSource]="eventSource"
         [calendarMode]="calendar.mode"
@@ -20,6 +22,12 @@
         (onTimeSelected)="onTimeSelected($event)"
         step="30">
       </calendar>
+    </ion-col>
+
+    <ion-col col-12>
+      <p>{{selectedEvent.title}}</p>
+      <p>{{selectedEvent.startTime}}</p>
+      <p>{{selectedEvent.endTime}}</p>
     </ion-col>
   </ion-grid>
 </ion-content>
