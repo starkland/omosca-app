@@ -4,12 +4,31 @@
   </ion-navbar>
 </ion-header>
 
-
 <ion-content>
   <ion-grid>
-    <ion-col col-12>
-      <h4 class="calendar-title" [innerHTML]="viewTitle"></h4>
-    </ion-col>
+    <header class="calendar-header">
+      <ion-col col-12>
+        <button
+          ion-button
+          icon-only
+          color="light"
+          class="btn-calendar"
+          (click)="previousMonth()">
+          <ion-icon name="arrow-back"></ion-icon>
+        </button>
+
+        <h4 class="calendar-title" [innerHTML]="viewTitle"></h4>
+
+        <button
+          ion-button
+          icon-only
+          color="light"
+          class="btn-calendar"
+          (click)="nextMonth()">
+          <ion-icon name="arrow-forward"></ion-icon>
+        </button>
+      </ion-col>
+    </header>
 
     <ion-col col-12>
       <calendar

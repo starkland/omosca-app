@@ -10,7 +10,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class CalendarPage {
 
-  calendar: Object;
+  calendar: any;
   selectedEvent: Object;
   viewTitle: String;
   eventSource: Array<{
@@ -24,7 +24,7 @@ export class CalendarPage {
 
     this.calendar = {
       mode: 'month',
-      currentDate: '',
+      currentDate: new Date(),
     };
 
     this.selectedEvent = '';
@@ -58,5 +58,19 @@ export class CalendarPage {
 
   onTimeSelected = (ev: { selectedTime: Date, events: any[] }) => {
     console.warn('Selected time: ' + ev.selectedTime + ', hasEvents: ' + (ev.events !== undefined && ev.events.length !== 0));
+  };
+
+  previousMonth() {
+    let crDate = this.calendar.currentDate;
+    let crMonth = this.calendar.currentDate.getMonth();
+
+    this.calendar.currentDate = new Date(crDate.setMonth(crMonth -1));
+  };
+
+  nextMonth() {
+    let crDate = this.calendar.currentDate;
+    let crMonth = this.calendar.currentDate.getMonth();
+
+    this.calendar.currentDate = new Date(crDate.setMonth(crMonth + 1));
   };
 }
