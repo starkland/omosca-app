@@ -56,8 +56,8 @@ export class CalendarPage {
   onEventSelected = (event) => {
     this.selectedEvent = event;
 
-    let modal = this.modalCtrl.create(event);
-    modal.present();
+    // let modal = this.modalCtrl.create(event);
+    // modal.present();
   };
 
   onViewTitleChanged = (title: string) => {
