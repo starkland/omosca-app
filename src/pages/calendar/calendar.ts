@@ -11,7 +11,15 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 export class CalendarPage {
 
   calendar: Object;
+
   viewTitle: String;
+
+  eventSource: Array<{
+    title: string,
+    startTime: Date,
+    endTime: Date,
+    allDay: boolean,
+  }>;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
 
@@ -21,6 +29,15 @@ export class CalendarPage {
     };
 
     this.viewTitle = '';
+
+    this.eventSource = [
+      {
+        title: 'Evento de teste!',
+        startTime: new Date(),
+        endTime: new Date(),
+        allDay: false,
+      }
+    ];
   }
 
   ionViewDidLoad() {
@@ -32,7 +49,7 @@ export class CalendarPage {
   };
 
   onEventSelected = (event) => {
-    console.warn('onEventSelected:', event.title);
+    console.warn('onEventSelected:', event);
   };
 
   onViewTitleChanged = (title: string) => {
