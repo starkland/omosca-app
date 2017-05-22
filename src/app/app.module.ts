@@ -10,6 +10,9 @@ import { LoginPage } from '../pages/login/login';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
+import 'intl';
+import 'intl/locale-data/jsonp/en';
+
 @NgModule({
   declarations: [
     MyApp,
