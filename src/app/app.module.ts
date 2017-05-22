@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { ErrorHandler, NgModule } from '@angular/core';
+import { ErrorHandler, NgModule, LOCALE_ID } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 
 import { MyApp } from './app.component';
@@ -34,6 +34,7 @@ import 'intl/locale-data/jsonp/en';
   providers: [
     StatusBar,
     SplashScreen,
+    {provide: LOCALE_ID, useValue: 'pt-BR'},
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
