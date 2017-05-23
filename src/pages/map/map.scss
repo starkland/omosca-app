@@ -4,3 +4,7 @@ page-map {
     height: 630px;
   }
 }
+
+.ion-page.show-page ~ .nav-decor {
+  display: none !important;
+}
