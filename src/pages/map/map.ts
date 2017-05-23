@@ -20,8 +20,6 @@ import {
 })
 export class MapPage {
 
-  posObj: any;
-
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
@@ -42,40 +40,32 @@ export class MapPage {
   }
 
   sharePosition(obj) {
-    this.posObj = {
-      lat: obj.latitude,
-      lng: obj.longitude,
+    let markerPosition: LatLng = new LatLng(obj.latitude, obj.longitude);
+
+    let position: CameraPosition = {
+      target: markerPosition,
+      zoom: 18,
+      tilt: 30
     };
 
-    this.loadMap(this.posObj);
+    let markerOptions: MarkerOptions = {
+      position: markerPosition,
+      title: 'YO!'
+    };
+
+    this.loadMap(position, markerOptions);
   }
 
-  loadMap(obj) {
-    console.warn(obj);
-
+  loadMap(position, markerOptions) {
     let element: HTMLElement = document.getElementById('map');
     let map: GoogleMap = this.googleMaps.create(element);
 
     map.one(GoogleMapsEvent.MAP_READY).then(() => {
-      console.warn('Map is ready!');
-
-      // create LatLng object
-      let markerPosition: LatLng = new LatLng(obj.lat, obj.lng);
-
-      // create CameraPosition
-      let position: CameraPosition = {
-        target: markerPosition,
-        zoom: 18,
-        tilt: 30
-      };
-
       map.moveCamera(position);
 
-      // create new marker
-      let markerOptions: MarkerOptions = {
-        position: markerPosition,
-        title: 'Ionic'
-     };
+      map.addMarker(markerOptions).then((marker: Marker) => {
+        marker.showInfoWindow();
+      });
     });
   }
 }
