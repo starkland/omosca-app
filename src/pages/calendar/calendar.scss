@@ -1,3 +1,19 @@
 page-calendar {
+  .calendar-header {
+    text-align: center;
+  }
 
+  .btn-calendar {
+    display: inline-block;
+  }
+
+  .calendar-title {
+    display: inline-block;
+    width: 230px;
+    height: 40px;
+
+    &:first-letter {
+      text-transform: capitalize;
+    }
+  }
 }

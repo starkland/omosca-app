@@ -12,6 +12,8 @@
         "ionic:serve": "ionic-app-scripts serve"
     },
     "dependencies": {
+        "intl": "^1.2.5",
+        "ionic2-calendar": "^0.3.3",
         "@angular/common": "4.1.0",
         "@angular/compiler": "4.1.0",
         "@angular/compiler-cli": "4.1.0",

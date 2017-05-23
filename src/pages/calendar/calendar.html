@@ -1,18 +1,52 @@
-<!--
-  Generated template for the CalendarPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
-
   <ion-navbar>
-    <ion-title>calendar</ion-title>
+    <ion-title>Calendar</ion-title>
   </ion-navbar>
-
 </ion-header>
 
-
 <ion-content>
+  <ion-grid>
+    <header class="calendar-header">
+      <ion-col col-12>
+        <button
+          ion-button
+          icon-only
+          color="light"
+          class="btn-calendar"
+          (click)="previousMonth()">
+          <ion-icon name="arrow-back"></ion-icon>
+        </button>
 
+        <h4 class="calendar-title" [innerHTML]="viewTitle"></h4>
+
+        <button
+          ion-button
+          icon-only
+          color="light"
+          class="btn-calendar"
+          (click)="nextMonth()">
+          <ion-icon name="arrow-forward"></ion-icon>
+        </button>
+      </ion-col>
+    </header>
+
+    <ion-col col-12>
+      <calendar
+        [eventSource]="eventSource"
+        [calendarMode]="calendar.mode"
+        [currentDate]="calendar.currentDate"
+        (onCurrentDateChanged)="onCurrentDateChanged($event)"
+        (onEventSelected)="onEventSelected($event)"
+        (onTitleChanged)="onViewTitleChanged($event)"
+        (onTimeSelected)="onTimeSelected($event)"
+        step="30">
+      </calendar>
+    </ion-col>
+
+    <ion-col col-12>
+      <p>{{selectedEvent.title}}</p>
+      <p>{{selectedEvent.startTime}}</p>
+      <p>{{selectedEvent.endTime}}</p>
+    </ion-col>
+  </ion-grid>
 </ion-content>
