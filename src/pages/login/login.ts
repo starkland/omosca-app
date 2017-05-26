@@ -35,7 +35,7 @@ export class LoginPage {
 
   getUserInfo() {
     this.fb
-      .api('/me?fields=email,id,name', this.scopes)
+      .api('/me?fields=email,id,name,picture', this.scopes)
       .then(this._handleApi.bind(this))
       .catch(this._handleError.bind(this));
   }
