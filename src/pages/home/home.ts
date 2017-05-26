@@ -1,9 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
-// Pages
-import { LoginPage } from '../login/login';
-
 @IonicPage({
   name: 'home',
 })
@@ -19,7 +16,10 @@ export class HomePage {
     image: string
   }>
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams) {
+
     this.slides = [
       {
         title: 'Welcome to OMOSCA',
@@ -42,6 +42,6 @@ export class HomePage {
   }
 
   goToLogin() {
-    this.navCtrl.setRoot(LoginPage);
+    this.navCtrl.push('login');
   }
 }
