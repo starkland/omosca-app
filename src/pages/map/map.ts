@@ -11,6 +11,8 @@ import {
  Marker
 } from '@ionic-native/google-maps';
 
+import { MapService } from './map.service';
+
 @IonicPage({
   name: 'map',
 })
@@ -24,7 +26,8 @@ export class MapPage {
     public navCtrl: NavController,
     public navParams: NavParams,
     private geolocation: Geolocation,
-    private googleMaps: GoogleMaps) {
+    private googleMaps: GoogleMaps,
+    private mapservice: MapService) {
   }
 
   ionViewDidLoad() {
@@ -54,6 +57,7 @@ export class MapPage {
     };
 
     this.loadMap(position, markerOptions);
+    this.loadMarkers();
   }
 
   loadMap(position, markerOptions) {
@@ -66,6 +70,12 @@ export class MapPage {
       map.addMarker(markerOptions).then((marker: Marker) => {
         marker.showInfoWindow();
       });
+    });
+  }
+
+  loadMarkers() {
+    this.mapservice.getMarkers().then(result => {
+      console.warn(result);
     });
   }
 }
