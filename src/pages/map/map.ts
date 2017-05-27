@@ -75,7 +75,9 @@ export class MapPage {
 
   loadMarkers() {
     this.mapservice.getMarkers().then(result => {
-      console.warn(result);
+      for (let item in result) {
+        console.warn(result[item]);
+      }
     });
   }
 }
