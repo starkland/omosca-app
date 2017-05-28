@@ -57,7 +57,6 @@ export class MapPage {
     };
 
     this.loadMap(position, markerOptions);
-    this.loadMarkers();
   }
 
   loadMap(position, markerOptions) {
@@ -68,16 +67,27 @@ export class MapPage {
       map.moveCamera(position);
 
       map.addMarker(markerOptions).then((marker: Marker) => {
-        marker.showInfoWindow();
+        console.warn('Then -> ', marker);
+        // marker.showInfoWindow();
       });
+
+      this.loadMarkers(map);
     });
   }
 
-  loadMarkers() {
+  loadMarkers(map) {
+    // let arr = [];
+
     this.mapservice.getMarkers().then(result => {
       for (let item in result) {
-        console.warn(result[item]);
+        // arr.push();
+
+        map.addMarker(result[item]).then((marker: Marker) => {
+          console.warn('DALE -> ', marker);
+        });
       }
+
+      // console.warn(arr);
     });
   }
 }

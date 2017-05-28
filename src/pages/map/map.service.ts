@@ -12,12 +12,21 @@ export class MapService {
     return this.http
       .get(this.markerUrl)
       .toPromise()
-      .then(this._handleMarkers);
+      .then(this._handleMarkers)
+      .catch(this._handleError);
   }
 
   _handleMarkers(res: Response) {
     const data = res.json();
 
     return data || { };
+  }
+
+  _handleError(err: any) {
+    const error = err.json();
+
+    if (error) {
+      throw new error;
+    }
   }
 }
