@@ -31,10 +31,10 @@ export class UserPage {
   }
 
   displayUserInfo() {
-    const userInfo = this.storage.get('user_info');
+    const userInfo = this.storage.get('fb_info');
 
     if (!userInfo) {
-      // chama pra API.
+      throw new Error(`Não existe dados para este usuário!`);
     } else {
       this.userData = userInfo;
       this.userData.photo = userInfo.picture.data.url;
@@ -42,7 +42,8 @@ export class UserPage {
   }
 
   logout() {
-    this.storage.remove('user_info');
+    this.storage.remove('fb_info');
+    this.storage.remove('firebase_info');
 
     setTimeout(() => {
       this.navCtrl.push('login');
