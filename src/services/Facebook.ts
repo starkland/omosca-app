@@ -25,7 +25,7 @@ export class FacebookProvider {
 
   _handleLogin(res) {
     if (res.status !== 'connected') {
-      console.warn('O status do login foi:', res.status);
+      throw new Error(`O status do login foi: ${res.status}`);
     } else {
       this.getUserInfo();
     }
@@ -41,12 +41,12 @@ export class FacebookProvider {
   }
 
   _handleApi(obj) {
-    this.storage.set('user_info', obj);
+    this.storage.set('fb_info', obj);
     this.firebase.setCredentials(obj);
   }
 
   _handleError(err) {
-    console.info('Algum erro aconteceu: ', err);
+    throw new Error(`Algum erro aconteceu: ${err}`);
   }
 }
 
