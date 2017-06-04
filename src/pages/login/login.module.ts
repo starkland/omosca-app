@@ -3,7 +3,7 @@ import { IonicPageModule } from 'ionic-angular';
 import { Facebook } from '@ionic-native/facebook';
 
 import { LoginPage } from './login';
-import { LoginService } from './login.service';
+import { FacebookProvider } from '../../services/Facebook';
 
 import { LocalStorage } from '../../services/LocalStorage';
 
@@ -20,7 +20,7 @@ import { LocalStorage } from '../../services/LocalStorage';
   providers: [
     Facebook,
     LocalStorage,
-    LoginService,
+    FacebookProvider,
   ]
 })
 export class LoginPageModule {}
