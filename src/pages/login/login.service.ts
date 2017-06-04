@@ -10,7 +10,10 @@ export class LoginService {
   }
 
   setCredentials(obj: any) {
-    this.users.push(obj);
+    const data = obj;
+    data.created_at = new Date().getTime();
+
+    this.users.push(data);
   }
 }
 
