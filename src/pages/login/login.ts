@@ -1,7 +1,13 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {
+  IonicPage,
+  NavController,
+  NavParams
+} from 'ionic-angular';
 import { Facebook } from '@ionic-native/facebook';
+import { LoginService } from './login.service';
 
+import { LocalStorage } from '../../services/LocalStorage';
 
 @IonicPage({
   name: 'login',
@@ -11,15 +17,16 @@ import { Facebook } from '@ionic-native/facebook';
   templateUrl: 'login.html',
 })
 export class LoginPage {
-
   scopes: any = [];
 
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
-    private fb: Facebook) {
+    private fb: Facebook,
+    private api: LoginService,
+    public storage: LocalStorage) {
 
-    this.scopes = ['public_profile', 'email'];
+    this.scopes = ['public_profile', 'email', 'user_birthday'];
   }
 
   ionViewDidLoad() {
@@ -34,8 +41,10 @@ export class LoginPage {
   }
 
   getUserInfo() {
+    const fields = '/me?fields=email,id,name,picture.height(961),birthday';
+
     this.fb
-      .api('/me?fields=email,id,name,picture', this.scopes)
+      .api(fields, this.scopes)
       .then(this._handleApi.bind(this))
       .catch(this._handleError.bind(this));
   }
@@ -44,21 +53,14 @@ export class LoginPage {
     if (res.status !== 'connected') {
       console.warn('O status do login foi:', res.status);
     } else {
-      const fbInfo = {
-        accessToken: res.authResponse.accessToken,
-        userID: res.authResponse.userID
-      };
-
-      // Set some facebook data on session storage
-      localStorage.setItem('fb_info', JSON.stringify(fbInfo));
-
       this.getUserInfo();
     }
   }
 
   _handleApi(obj) {
-    // Set the user data on session storage
-    localStorage.setItem('user_info', JSON.stringify(obj));
+    this.storage.set('user_info', obj);
+
+    this.api.setCredentials(obj);
 
     setTimeout(() => {
       this.navCtrl.push('dashboard');

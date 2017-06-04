@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { IonicPageModule } from 'ionic-angular';
 
 import { UserPage } from './user';
+import { LocalStorage } from '../../services/LocalStorage';
 
 @NgModule({
   declarations: [
@@ -9,6 +10,9 @@ import { UserPage } from './user';
   ],
   imports: [
     IonicPageModule.forChild(UserPage),
+  ],
+  providers: [
+    LocalStorage,
   ],
   exports: [
     UserPage

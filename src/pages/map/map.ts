@@ -11,6 +11,8 @@ import {
  Marker
 } from '@ionic-native/google-maps';
 
+import { MapService } from './map.service';
+
 @IonicPage({
   name: 'map',
 })
@@ -24,7 +26,8 @@ export class MapPage {
     public navCtrl: NavController,
     public navParams: NavParams,
     private geolocation: Geolocation,
-    private googleMaps: GoogleMaps) {
+    private googleMaps: GoogleMaps,
+    private mapservice: MapService) {
   }
 
   ionViewDidLoad() {
@@ -64,8 +67,27 @@ export class MapPage {
       map.moveCamera(position);
 
       map.addMarker(markerOptions).then((marker: Marker) => {
-        marker.showInfoWindow();
+        console.warn('Then -> ', marker);
+        // marker.showInfoWindow();
       });
+
+      this.loadMarkers(map);
+    });
+  }
+
+  loadMarkers(map) {
+    // let arr = [];
+
+    this.mapservice.getMarkers().then(result => {
+      for (let item in result) {
+        // arr.push();
+
+        map.addMarker(result[item]).then((marker: Marker) => {
+          console.warn('DALE -> ', marker);
+        });
+      }
+
+      // console.warn(arr);
     });
   }
 }

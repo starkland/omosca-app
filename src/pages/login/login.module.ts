@@ -3,6 +3,9 @@ import { IonicPageModule } from 'ionic-angular';
 import { Facebook } from '@ionic-native/facebook';
 
 import { LoginPage } from './login';
+import { LoginService } from './login.service';
+
+import { LocalStorage } from '../../services/LocalStorage';
 
 @NgModule({
   declarations: [
@@ -15,7 +18,9 @@ import { LoginPage } from './login';
     LoginPage
   ],
   providers: [
-    Facebook
+    Facebook,
+    LocalStorage,
+    LoginService,
   ]
 })
 export class LoginPageModule {}

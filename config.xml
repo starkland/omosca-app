@@ -1,11 +1,14 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="com.omosca.app" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>MyApp</name>
-    <description>An awesome Ionic/Cordova app.</description>
-    <author email="hi@ionicframework" href="http://ionicframework.com/">Ionic Framework Team</author>
+    <name>oMosca</name>
+    <description>Sua plataforma de entretenimento social.</description>
+    <author email="contato@omosca.com" href="http://omosca.com/app">
+      oMosca Team
+    </author>
     <content src="index.html" />
     <access origin="*" />
     <allow-navigation href="http://ionic.local/*" />
+    <allow-navigation href="http://192.168.25.5:8100" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
     <allow-intent href="tel:*" />
