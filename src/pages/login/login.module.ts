@@ -3,6 +3,7 @@ import { IonicPageModule } from 'ionic-angular';
 import { Facebook } from '@ionic-native/facebook';
 
 import { LoginPage } from './login';
+import { LoginService } from './login.service';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { LoginPage } from './login';
     LoginPage
   ],
   providers: [
-    Facebook
+    Facebook,
+    LoginService,
   ]
 })
 export class LoginPageModule {}

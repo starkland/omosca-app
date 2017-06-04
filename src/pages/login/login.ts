@@ -1,7 +1,11 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {
+  IonicPage,
+  NavController,
+  NavParams
+} from 'ionic-angular';
 import { Facebook } from '@ionic-native/facebook';
-
+import { LoginService } from './login.service';
 
 @IonicPage({
   name: 'login',
@@ -11,13 +15,13 @@ import { Facebook } from '@ionic-native/facebook';
   templateUrl: 'login.html',
 })
 export class LoginPage {
-
   scopes: any = [];
 
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
-    private fb: Facebook) {
+    private fb: Facebook,
+    private api: LoginService) {
 
     this.scopes = ['public_profile', 'email'];
   }
@@ -59,6 +63,8 @@ export class LoginPage {
   _handleApi(obj) {
     // Set the user data on session storage
     localStorage.setItem('user_info', JSON.stringify(obj));
+
+    this.api.setCredentials(obj);
 
     setTimeout(() => {
       this.navCtrl.push('dashboard');
