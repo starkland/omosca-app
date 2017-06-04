@@ -10,14 +10,14 @@
       <ion-col col-12>
         <ion-card>
           <ion-item>
-            <h2>Marty McFly</h2>
-            <p>November 5, 1955</p>
+            <h2 [innerHTML]="userData.name"></h2>
+            <p [innerHTML]="userData.birthday"></p>
           </ion-item>
 
-          <img src="http://dummyimage.com/690x416/4d494d/686a82.gif&text=avatar+aqui" alt="avatar+aqui">
+          <img [src]="userData.photo" [alt]="userData.name">
 
           <ion-card-content>
-            <p>Wait a minute. Wait a minute, Doc. Uhhh... Are you telling me that you built a time machine... out of a DeLorean?! Whoa. This is heavy.</p>
+            <p></p>
           </ion-card-content>
 
           <ion-row>
