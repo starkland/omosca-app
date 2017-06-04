@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Facebook } from '@ionic-native/facebook';
 
 import { LocalStorage } from './LocalStorage';
+import { FirebaseProvider } from './Firebase';
 
 @Injectable()
 export class FacebookProvider {
@@ -9,7 +10,8 @@ export class FacebookProvider {
 
   constructor(
     private fb: Facebook,
-    public storage: LocalStorage) {
+    public storage: LocalStorage,
+    public firebase: FirebaseProvider) {
 
     this.scopes = ['public_profile', 'email', 'user_birthday'];
   }
@@ -39,10 +41,8 @@ export class FacebookProvider {
   }
 
   _handleApi(obj) {
-    console.warn(obj);
     this.storage.set('user_info', obj);
-
-    // this.firebase.setCredentials(obj);
+    this.firebase.setCredentials(obj);
   }
 
   _handleError(err) {

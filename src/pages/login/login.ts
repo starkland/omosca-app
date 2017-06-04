@@ -14,8 +14,6 @@ import { FacebookProvider } from '../../services/Facebook';
   templateUrl: 'login.html',
 })
 export class LoginPage {
-  scopes: any = [];
-
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,

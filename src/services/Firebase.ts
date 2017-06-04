@@ -1,11 +1,16 @@
 import { Injectable } from '@angular/core';
-import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
+import {
+  AngularFireDatabase,
+  FirebaseListObservable
+} from 'angularfire2/database';
 
 @Injectable()
-export class LoginService {
+export class FirebaseProvider {
   users: FirebaseListObservable<any[]>;
 
-  constructor(private db: AngularFireDatabase) {
+  constructor(
+    private db: AngularFireDatabase) {
+
     this.users = db.list('/users');
   }
 
@@ -16,4 +21,3 @@ export class LoginService {
     this.users.push(data);
   }
 }
-
