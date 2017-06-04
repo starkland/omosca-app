@@ -27,8 +27,8 @@ export class LoginPage {
   login() {
     this.fb_auth.login();
 
-    // setTimeout(() => {
-    //   this.navCtrl.push('dashboard');
-    // }, 300);
+    setTimeout(() => {
+      this.navCtrl.push('dashboard');
+    }, 300);
   }
 }
