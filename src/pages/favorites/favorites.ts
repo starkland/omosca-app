@@ -49,10 +49,8 @@ export class FavoritesPage {
   }
 
   openCard(cardObj) {
-    // console.warn(cardObj);
     const obj = { favId: cardObj };
     let modal = this.modalCtrl.create(FavCard, obj);
     modal.present();
   }
-
 }
