@@ -23,6 +23,7 @@ export class FavCard {
   }
 
   openEvent(obj) {
+    alert('Evento clicado!');
     console.warn('Evento clicado: ', obj);
   }
 }
