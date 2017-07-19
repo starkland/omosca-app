@@ -22,20 +22,20 @@ export class HomePage {
 
     this.slides = [
       {
-        title: 'Welcome to OMOSCA',
-        description: 'The showcases a number of useful components that are included out of the box..',
+        title: 'Hello, Mosconauta!',
+        description: 'Muito bem vindos ao mais novo app de entretenimento da web.',
         image: 'http://dummyimage.com/420x520/4d494d/686a82.gif&text=imagem+teste'
       },
 
       {
-        title: 'Hey MOSCA!',
-        description: 'The <b>Ionic Component Documentation</b> showcases a number of useful components.',
+        title: 'SE LIGA.',
+        description: 'Aqui você encontra todas as informações sobre os eventos da sua região.',
         image: 'http://dummyimage.com/420x520/4d494d/686a82.gif&text=imagem+teste'
       },
 
       {
-        title: 'Bye bro',
-        description: 'The <b>Ionic Component Documentation</b> showcases a number of useful components.',
+        title: 'Fique por dentro!',
+        description: 'Siga nossas redes sociais e fique por dentro de todas as novidades.',
         image: 'http://dummyimage.com/420x520/4d494d/686a82.gif&text=imagem+teste'
       }
     ];
