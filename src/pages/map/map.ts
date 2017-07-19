@@ -66,10 +66,10 @@ export class MapPage {
     map.one(GoogleMapsEvent.MAP_READY).then(() => {
       map.moveCamera(position);
 
-      map.addMarker(markerOptions).then((marker: Marker) => {
-        console.warn('Then -> ', marker);
-        // marker.showInfoWindow();
-      });
+      // map.addMarker(markerOptions).then((marker: Marker) => {
+      //   console.warn('Then -> ', marker);
+      //   // marker.showInfoWindow();
+      // });
 
       this.loadMarkers(map);
     });
