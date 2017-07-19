@@ -10,6 +10,7 @@ import { environment } from '../environments/environment';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
+import { FavCard } from '../pages/favorites/favorite-modal';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -22,6 +23,7 @@ import 'intl/locale-data/jsonp/en';
     MyApp,
     HomePage,
     ListPage,
+    FavCard,
   ],
   imports: [
     HttpModule,
@@ -35,6 +37,7 @@ import 'intl/locale-data/jsonp/en';
     MyApp,
     HomePage,
     ListPage,
+    FavCard,
   ],
   providers: [
     StatusBar,
