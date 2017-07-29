@@ -47,6 +47,13 @@
           <p [innerHTML]="placeData.details.location.address"></p>
         </button>
       </ion-col>
+
+      <ion-col>
+        <button ion-button icon-left clear small (click)="favorite(placeData)">
+          <ion-icon name="heart"></ion-icon>
+          <div>Favoritar</div>
+        </button>
+      </ion-col>
     </ion-row>
   </ion-card>
 </ion-content>

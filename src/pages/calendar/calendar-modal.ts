@@ -21,4 +21,9 @@ export class CalendarModal {
    let data = {};
    this.viewCtrl.dismiss(data);
   }
+
+  favorite(obj) {
+    console.warn('Evento favoritado!');
+    console.warn(obj);
+  }
 }
