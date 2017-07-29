@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
+import { CalendarModal } from './calendar-modal';
 
 @IonicPage({
   name: 'calendar',
@@ -53,11 +54,11 @@ export class CalendarPage {
     console.warn('Currently viewed date:', ev);
   };
 
-  onEventSelected = (event) => {
-    this.selectedEvent = event;
-
-    // let modal = this.modalCtrl.create(event);
-    // modal.present();
+  onEventSelected = (evtObj) => {
+    console.warn(evtObj);
+    const obj = { evtId: evtObj };
+    let modal = this.modalCtrl.create(CalendarModal, obj);
+    modal.present();
   };
 
   onViewTitleChanged = (title: string) => {

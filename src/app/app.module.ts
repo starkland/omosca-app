@@ -11,6 +11,7 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import { FavCard } from '../pages/favorites/favorite-modal';
+import { CalendarModal } from '../pages/calendar/calendar-modal';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -24,6 +25,7 @@ import 'intl/locale-data/jsonp/en';
     HomePage,
     ListPage,
     FavCard,
+    CalendarModal,
   ],
   imports: [
     HttpModule,
@@ -38,6 +40,7 @@ import 'intl/locale-data/jsonp/en';
     HomePage,
     ListPage,
     FavCard,
+    CalendarModal,
   ],
   providers: [
     StatusBar,
