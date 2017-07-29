@@ -14,27 +14,29 @@
 <ion-content>
   <ion-card>
     <ion-item>
-      <h2 [innerHTML]="placeData.title"></h2>
+      <h2 class="modal-title" [innerHTML]="placeData.title"></h2>
     </ion-item>
 
-    <img [src]="placeData.image" [alt]="placeData.title">
+    <img [src]="placeData.details.image" [alt]="placeData.title">
 
     <ion-card-content>
-      <p [innerHTML]="placeData.description"></p>
+      <h4 [innerHTML]="placeData.details.name"></h4>
+      <p [innerHTML]="placeData.details.email"></p>
+      <br />
+
+      <p [innerHTML]="placeData.details.description"></p>
+      <br />
+
+      <a [href]="placeData.details.link" target="_blank">
+        {{ placeData.details.link }}
+      </a>
     </ion-card-content>
 
     <ion-row>
       <ion-col>
         <button ion-button icon-left clear small>
           <ion-icon name="alarm"></ion-icon>
-          <div>{{ placeData.startTime | date: 'shortTime' }}</div>
-        </button>
-      </ion-col>
-
-      <ion-col>
-        <button ion-button icon-left clear small>
-          <ion-icon name="time"></ion-icon>
-          <div>{{ placeData.endTime | date: 'shortTime' }}</div>
+          <div>{{ placeData.details.date | date: 'shortTime' }}</div>
         </button>
       </ion-col>
     </ion-row>

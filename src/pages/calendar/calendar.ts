@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
 import { CalendarModal } from './calendar-modal';
+import { CalendarService } from './calendar.service';
 
 @IonicPage({
   name: 'calendar',
@@ -20,16 +21,18 @@ export class CalendarPage {
     startTime: Date,
     endTime: Date,
     allDay: boolean,
+    details: any
   }>;
 
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
-    public modalCtrl: ModalController) {
+    public modalCtrl: ModalController,
+    private calendarservice: CalendarService) {
 
     this.calendar = {
       mode: 'month',
-      currentDate: new Date(),
+      currentDate: new Date()
     };
 
     this.selectedEvent = '';
@@ -42,13 +45,29 @@ export class CalendarPage {
         startTime: new Date(),
         endTime: new Date(),
         allDay: false,
+        details: ''
       }
     ];
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad CalendarPage');
-  }
+
+    this.calendarservice.getEvents().then(result => {
+      for (let item in result) {
+        let obj = {
+          eventId: Number(item),
+          title: result[item].name,
+          startTime: new Date(result[item].date),
+          endTime: new Date(result[item].date),
+          details: result[item],
+          allDay: false
+        };
+
+        this.eventSource.push(obj);
+      }
+    });
+  };
 
   onCurrentDateChanged = (ev: Date) => {
     console.warn('Currently viewed date:', ev);

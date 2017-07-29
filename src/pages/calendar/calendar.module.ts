@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { IonicPageModule } from 'ionic-angular';
 import { CalendarPage } from './calendar';
+import { CalendarService } from './calendar.service';
 
 import { NgCalendarModule  } from 'ionic2-calendar';
 
@@ -14,6 +15,9 @@ import { NgCalendarModule  } from 'ionic2-calendar';
   ],
   exports: [
     CalendarPage
+  ],
+  providers: [
+    CalendarService
   ]
 })
 export class CalendarPageModule {}
