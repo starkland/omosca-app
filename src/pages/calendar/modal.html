@@ -26,10 +26,6 @@
 
       <p [innerHTML]="placeData.details.description"></p>
       <br />
-
-      <a [href]="placeData.details.link" target="_blank">
-        {{ placeData.details.link }}
-      </a>
     </ion-card-content>
 
     <ion-row>
@@ -37,6 +33,18 @@
         <button ion-button icon-left clear small>
           <ion-icon name="alarm"></ion-icon>
           <div>{{ placeData.details.date | date: 'shortTime' }}</div>
+        </button>
+
+        <button ion-button icon-left clear small>
+          <ion-icon name="link"></ion-icon>
+          <a [href]="placeData.details.link" target="_blank">
+            {{ placeData.details.link }}
+          </a>
+        </button>
+
+        <button ion-button icon-left clear small>
+          <ion-icon name="location"></ion-icon>
+          <p [innerHTML]="placeData.details.location.address"></p>
         </button>
       </ion-col>
     </ion-row>
