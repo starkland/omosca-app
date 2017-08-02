@@ -42,43 +42,40 @@ export class MapPage {
       tilt: 30
     };
 
-    let markerOptions: MarkerOptions = {
+    let userMarker: MarkerOptions = {
       position: markerPosition,
       title: 'YO!'
     };
 
-    this.loadMap(position, markerOptions);
+    this.loadMap(position, userMarker);
   }
 
-  loadMap(position, markerOptions) {
+  loadMap(position, userMarker) {
     let element: HTMLElement = document.getElementById('map');
     let map: GoogleMap = this.googleMaps.create(element);
 
     map.one(GoogleMapsEvent.MAP_READY).then(() => {
       map.moveCamera(position);
-
-      // map.addMarker(markerOptions).then((marker: Marker) => {
-      //   console.warn('Then -> ', marker);
-      //   // marker.showInfoWindow();
-      // });
+      map.addMarker(userMarker);
 
       this.loadMarkers(map);
     });
   }
 
   loadMarkers(map) {
-    // let arr = [];
-
     this.mapservice.getMarkers().then(result => {
       for (let item in result) {
-        // arr.push();
+        let veggie = result[item].veggie;
 
-        map.addMarker(result[item]).then((marker: Marker) => {
-          console.warn('DALE -> ', marker);
-        });
+        if (veggie && veggie.location) {
+          let marker: MarkerOptions = {
+            position: new LatLng(veggie.location[0], veggie.location[1]),
+            title: veggie.name
+          };
+
+          map.addMarker(marker);
+        }
       }
-
-      // console.warn(arr);
     });
   }
 }
