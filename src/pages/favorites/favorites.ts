@@ -1,5 +1,9 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {
+  ModalController, IonicPage,
+  NavController, NavParams
+} from 'ionic-angular';
+import { FavCard } from './favorite-modal';
 
 @IonicPage({
   name: 'favorites',
@@ -17,7 +21,11 @@ export class FavoritesPage {
     id: number,
   }>
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    public modalCtrl: ModalController
+    ) {
 
     this.cards = [
       {
@@ -41,7 +49,8 @@ export class FavoritesPage {
   }
 
   openCard(cardObj) {
-    console.warn(cardObj);
+    const obj = { favId: cardObj };
+    let modal = this.modalCtrl.create(FavCard, obj);
+    modal.present();
   }
-
 }

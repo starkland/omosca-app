@@ -1,0 +1,61 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Detalhes</ion-title>
+
+    <ion-buttons start>
+      <button ion-button (click)="dismiss()">
+        <span ion-text color="primary" showWhen="ios">Cancel</span>
+        <ion-icon name="md-close" showWhen="android, windows"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-item>
+      <h2 [innerHTML]="placeData.title"></h2>
+    </ion-item>
+
+    <img [src]="placeData.image" [alt]="placeData.title">
+
+    <ion-card-content>
+      <p [innerHTML]="placeData.description"></p>
+    </ion-card-content>
+
+    <ion-row>
+      <ion-col>
+        <button ion-button icon-left clear small>
+          <ion-icon name="thumbs-up"></ion-icon>
+          <div>12 Baladas</div>
+        </button>
+      </ion-col>
+
+      <ion-col>
+        <button ion-button icon-left clear small>
+          <ion-icon name="star"></ion-icon>
+          <div>5 Favoritos</div>
+        </button>
+      </ion-col>
+    </ion-row>
+  </ion-card>
+
+  <ion-list>
+    <!-- list of events in array -->
+    <button ion-item (click)="openEvent($event)">
+      <ion-icon name="build" item-left></ion-icon>
+      Mc Leozinho
+      <!-- <div class="item-note" item-right>
+        Uma nota vem aqui..
+      </div> -->
+    </button>
+
+    <button ion-item (click)="openEvent($event)">
+      <ion-icon name="boat" item-left></ion-icon>
+      Furação 2000
+      <!-- <div class="item-note" item-right>
+        Uma nota vem aqui..
+      </div> -->
+    </button>
+  </ion-list>
+</ion-content>

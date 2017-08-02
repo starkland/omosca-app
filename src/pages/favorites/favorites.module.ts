@@ -11,6 +11,8 @@ import { FavoritesPage } from './favorites';
   ],
   exports: [
     FavoritesPage
-  ]
+  ],
+  entryComponents: [
+  ],
 })
 export class FavoritesPageModule {}
